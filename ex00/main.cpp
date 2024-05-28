@@ -6,11 +6,18 @@
 /*   By: qdo <qdo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 02:42:21 by qdo               #+#    #+#             */
-/*   Updated: 2024/05/28 02:46:45 by qdo              ###   ########.fr       */
+/*   Updated: 2024/05/28 02:51:54 by qdo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
+
+Zombie *newZombie( std::string name )
+{
+	Zombie *oneZombie = new Zombie[1];
+	oneZombie[0].setName(name);
+	return (oneZombie);
+}
 
 void		randomChump( std::string name )
 {
@@ -27,4 +34,3 @@ int	main(void)
 	delete [] zombie2;
 	return (0);
 }
-	

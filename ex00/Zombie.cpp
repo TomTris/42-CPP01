@@ -6,7 +6,7 @@
 /*   By: qdo <qdo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 01:50:23 by qdo               #+#    #+#             */
-/*   Updated: 2024/05/28 02:42:03 by qdo              ###   ########.fr       */
+/*   Updated: 2024/05/28 03:56:07 by qdo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,4 @@ void		Zombie::setName(std::string name_out)
 {
 	this->name = name_out;
 	this->announce();
-}
-
-Zombie *newZombie( std::string name )
-{
-	Zombie *oneZombie = new Zombie[1];
-	oneZombie[0].setName(name);
-	return (oneZombie);
 }
