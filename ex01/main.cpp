@@ -6,7 +6,7 @@
 /*   By: qdo <qdo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 04:10:41 by qdo               #+#    #+#             */
-/*   Updated: 2024/05/28 05:13:23 by qdo              ###   ########.fr       */
+/*   Updated: 2024/05/30 20:09:53 by qdo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ int	main(void)
 	Zombie *horde2;
 
 	horde1 = zombieHorde(4, "Ooooooaaaaaaiiiiiii");
-	if ( horde1 == nullptr )
+	if ( horde1 == NULL )
 	{
 		std::cout << "horde1 malloc failed" << std::endl;
 		return (1);
 	}
 	horde2 = zombieHorde(9, "A uuuuuuuuuuu");
-	if (horde2 == nullptr)
+	if (horde2 == NULL)
 	{
 		std::cout << "horde1 malloc failed" << std::endl;
 		delete [] horde1;

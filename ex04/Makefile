@@ -8,6 +8,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
+	@echo "\033[34m'$(NAME)'\033[0m is ready to execute!"
 
 clean :
 	rm -f $(OBJS) *.replace *.out

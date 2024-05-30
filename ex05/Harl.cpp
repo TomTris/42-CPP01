@@ -6,7 +6,7 @@
 /*   By: qdo <qdo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 04:11:41 by qdo               #+#    #+#             */
-/*   Updated: 2024/05/29 04:49:19 by qdo              ###   ########.fr       */
+/*   Updated: 2024/05/30 20:02:38 by qdo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,27 @@ void Harl::error(void) { std::cout << "This is unacceptable! I want to speak to 
 void	Harl::complain( std::string level )
 {
 	void (Harl::*ft_ptr[4])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
-	
-	if (level == "DEBUG")
-		(this->*(ft_ptr[0]))();
-	if (level == "INFO")
-		(this->*(ft_ptr[1]))();
-	if (level == "WARNING")
-		(this->*(ft_ptr[2]))();
-	if (level == "ERROR")
-		(this->*(ft_ptr[3]))();
+	std::string msg[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};	
+	int	i = -1;
+	while (++i <= 3)
+		if (msg[i] == level)
+			break ;
+	switch (i)
+	{
+		case 0:
+			(this->*(ft_ptr[i]))();
+			return ;
+		case 1:
+			(this->*(ft_ptr[i]))();
+			return ;
+		case 2:
+			(this->*(ft_ptr[i]))();
+			return ;
+		case 3:
+			(this->*(ft_ptr[i]))();
+			return ;
+		default:
+			std::cout << "Hmm..." << std::endl;
+	}
 }
 
