@@ -6,7 +6,7 @@
 /*   By: qdo <qdo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 23:51:22 by qdo               #+#    #+#             */
-/*   Updated: 2024/05/29 01:48:49 by qdo              ###   ########.fr       */
+/*   Updated: 2024/05/30 19:48:21 by qdo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,19 +33,19 @@ std::string ft_file_content(std::ifstream &infile)
 
 int	main(int ac, char **av)
 {
-	if (ac != 4 || av[1][0] == ' '|| av[2][0] == ' ')
-		return (std::cout << "args invalid"<< std::endl, 1);
+	if (ac != 4 || av[1][0] == 0 || av[2][0] == 0)
+		return (std::cerr << "args invalid"<< std::endl, 1);
 	
 	//open -> it's a stream.
 	std::ifstream	infile(av[1]);
 	if (infile.is_open() == 0)
-		return (std::cout << "can't open infile" << std::endl, 1);
+		return (std::cerr << "can't open infile" << std::endl, 1);
 	
 	std::string outfile_name = (std::string)av[1] + ".replace";
 	//open-wrtie -> 2 mode: std::ios::trunc || append. without std::ios-> by default: trunc
-	std::ofstream outfile(outfile_name, std::ios::trunc);
+	std::ofstream outfile(outfile_name.c_str(), std::ios::trunc);
 	if (outfile.is_open() == 0)
-		return (std::cout << "can't open " << outfile_name << std::endl, 1);
+		return (infile.close(), std::cerr << "can't open " << outfile_name << std::endl, 1);
 	
 	std::string				to_re = av[2];
 	int						len1 = to_re.length();
@@ -56,7 +56,6 @@ int	main(int ac, char **av)
 	//my way to handle -- read all
 	std::string				file_content = ft_file_content(infile);
 	
-	// size_t pos = 0;
 	size_t pos = file_content.find(to_re, 0);
 	while (pos != std::string::npos)
 	{

@@ -6,7 +6,7 @@
 /*   By: qdo <qdo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 04:40:07 by qdo               #+#    #+#             */
-/*   Updated: 2024/05/29 04:49:15 by qdo              ###   ########.fr       */
+/*   Updated: 2024/05/30 20:27:31 by qdo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,29 @@ void	Harl::complain( std::string level )
 		if (level == msg[i])
 			break ;
 	}
-	if (i == 5)
+	switch (i)
 	{
-		std::cout << "[ Probably complaining about insignificant problems ]" <<std::endl;
-		return ;
-	}
-	while (i <= 3)
-	{
-		std::cout << "[ " << msg[i] << " ]" << std::endl;
-		(this->*(ft_ptr[i++]))();
-		std::cout << "" << std::endl;
+		case 0:
+			std::cout << "[ " << msg[i] << " ]" << std::endl;
+			(this->*(ft_ptr[i++]))();
+			std::cout << "" << std::endl;
+			// Fall through
+		case 1:
+			std::cout << "[ " << msg[i] << " ]" << std::endl;
+			(this->*(ft_ptr[i++]))();
+			std::cout << "" << std::endl;
+			// Fall through
+		case 2:
+			std::cout << "[ " << msg[i] << " ]" << std::endl;
+			(this->*(ft_ptr[i++]))();
+			std::cout << "" << std::endl;
+			// Fall through
+		case 3:
+			std::cout << "[ " << msg[i] << " ]" << std::endl;
+			(this->*(ft_ptr[i++]))();
+			std::cout << "" << std::endl;
+			return ;
+		default:
+			std::cout << "[ Probably complaining about insignificant problems ]" <<std::endl;
 	}
 }
-
